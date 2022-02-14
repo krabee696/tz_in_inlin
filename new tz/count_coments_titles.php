@@ -12,7 +12,7 @@ require 'connect.php';
 
 foreach ($arryPostsObj as $item) 
 {	
-    $sql = "INSERT INTO post (userId, id, title, body) VALUES (?, ?, ?, ?)" ;
+    $sql = "INSERT INTO posts (userId, id, title, body) VALUES (?, ?, ?, ?)" ;
 	$stmt = $connect -> prepare($sql);
 	$stmt -> bind_param('iiss', $item['userId'], $item['id'], $item['title'], $item['body']);	
 	$stmt -> execute();
@@ -21,7 +21,7 @@ foreach ($arryPostsObj as $item)
 
 foreach ($arryCommentsObj as $item) 
 {	
-    $sql = "INSERT INTO comment (postId, id, name, email, body) VALUES (?, ?, ?, ?, ?)" ;
+    $sql = "INSERT INTO comments (postId, id, name, email, body) VALUES (?, ?, ?, ?, ?)" ;
 	$stmt = $connect -> prepare($sql);
 	$stmt -> bind_param('iisss', $item['postId'], $item['id'], $item['name'], $item['email'], $item['body']);	
 	$stmt -> execute();
